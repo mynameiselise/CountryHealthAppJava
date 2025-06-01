@@ -20,8 +20,8 @@
 
     <TextView
         android:id="@+id/topTenText"
-        android:layout_width="334dp"
-        android:layout_height="199dp"
+        android:layout_width="336dp"
+        android:layout_height="235dp"
         android:text="Top Ten"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"

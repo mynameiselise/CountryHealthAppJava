@@ -34,7 +34,7 @@ public class MentalHealthAnalyzer {
     private void loadCsv(String path) throws Exception {
 
         try{
-            InputStream inputStream = assets.open("mental_illnesses_prevalence.csv"); //TODO 6
+            InputStream inputStream = assets.open("mental_illnesses_prevalence.csv");
             InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
             CSVReader csvReader = new CSVReader(inputStreamReader);
             String[] t;
@@ -67,8 +67,8 @@ public class MentalHealthAnalyzer {
     public  List<CountryMentalHealth> showTop10Depression() {
         // Copy values into a list for easy sorting.
         List<CountryMentalHealth> list = new ArrayList<>(countries.values());
-
-        // Sort descending by latest-year depression percentage.
+        List<CountryMentalHealth> top10List = new ArrayList<>();
+                // Sort descending by latest-year depression percentage.
         Collections.sort(list, new Comparator<CountryMentalHealth>() {
             @Override public int compare(CountryMentalHealth a, CountryMentalHealth b) {
                 double da = a.latestData().getDepression();
@@ -81,10 +81,10 @@ public class MentalHealthAnalyzer {
         for (int i = 0; i < list.size() && i < 10; i++) {
             CountryMentalHealth c = list.get(i);
             Data d = c.latestData();
-            System.out.println();
+            top10List.add(c);
         }
         System.out.println(list.toString());
-        return list;
+        return top10List;
     }
 
     public CountryMentalHealth showCountry(String name) {
