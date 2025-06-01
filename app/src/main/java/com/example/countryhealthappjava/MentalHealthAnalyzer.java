@@ -19,41 +19,15 @@ public class MentalHealthAnalyzer {
     private  final Map<String, CountryMentalHealth> countries = new HashMap<>();
     AssetManager assets;
 
-    public MentalHealthAnalyzer(AssetManager assets){ //TODO 4
-       this.assets = assets; //TODO 5
+    public MentalHealthAnalyzer(AssetManager assets){
+       this.assets = assets;
         try {
             loadCsv(CSV);
         } catch (Exception ex) {
             System.err.println("Could not load CSV: " + ex.getMessage());
-            //TODO 5
+
             //return;
         }
-
-        //TODO 3
-//        Scanner sc = new Scanner(System.in);
-//        while (true) {
-//            System.out.println();
-//            String choice = sc.nextLine().trim();
-//
-//            if ("1".equals(choice)) {
-//                showTop10Depression();
-//            } else if ("2".equals(choice)) {
-//                System.out.print("Enter country name: ");
-//                showCountry(sc.nextLine().trim());
-//            } else if ("3".equals(choice)) {
-//                System.out.print("Year (1990-2019): ");
-//                try {
-//                    filterYear(Integer.parseInt(sc.nextLine().trim()));
-//                } catch (NumberFormatException nfe) {
-//                    System.out.println("Invalid year.");
-//                }
-//            } else if ("0".equals(choice)) {
-//                System.out.println("Bye.");
-//                break;
-//            } else {
-//                System.out.println("Unknown option.");
-//            }
-//        }
     }
 
 
@@ -64,7 +38,6 @@ public class MentalHealthAnalyzer {
             InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
             CSVReader csvReader = new CSVReader(inputStreamReader);
             String[] t;
-            //TODO 7
             csvReader.readNext();
             while((t = csvReader.readNext())!=null){
                 String entity = t[0];
@@ -86,14 +59,11 @@ public class MentalHealthAnalyzer {
                 cmh.addYearData(year, d);
 //                System.out.println(d);
             }
-        } catch (Exception e){ //TODO 1
+        } catch (Exception e){
             e.printStackTrace();
         }
     }
 
-
-
-    //TODO 8
     public  List<CountryMentalHealth> showTop10Depression() {
         // Copy values into a list for easy sorting.
         List<CountryMentalHealth> list = new ArrayList<>(countries.values());
@@ -114,7 +84,7 @@ public class MentalHealthAnalyzer {
             System.out.println();
         }
         System.out.println(list.toString());
-        return list; //TODO 9
+        return list;
     }
 
     public CountryMentalHealth showCountry(String name) {

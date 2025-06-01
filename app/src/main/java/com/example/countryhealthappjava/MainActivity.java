@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         Button toHomeScreen = (Button) findViewById(R.id.homeScreenButton);
 
 
-        MentalHealthAnalyzer analyzer = new MentalHealthAnalyzer(this.getAssets()); //TODO 2
+        MentalHealthAnalyzer analyzer = new MentalHealthAnalyzer(this.getAssets());
 
 
         // For the latest year, which of the selected 5 mental disorders is most
